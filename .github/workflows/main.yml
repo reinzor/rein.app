@@ -21,6 +21,6 @@ jobs:
           mkdir ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/gh_actions_key
           chmod 600 ~/.ssh/gh_actions_key
-          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" dist rein@rein.app:/rein.app
+          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" dist rein@rein.app:/var/www/rein.app
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
