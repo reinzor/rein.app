@@ -1,6 +1,6 @@
 <template>
   <div id="navbar">
-    <b-navbar type="dark">
+    <b-navbar type="dark" sticky>
       <b-container>
         <b-navbar-brand href="https://rein.app">
           <b>rein.app</b>eldoorn

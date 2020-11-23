@@ -1,6 +1,6 @@
 <template>
   <footer id="footerbar">
-    <b-navbar type="dark">
+    <b-navbar type="dark" sticky>
       <b-container>
         <b-collapse id="nav-collapse" is-nav>
           <!-- Left aligned nav items -->
@@ -36,7 +36,7 @@ export default {
 
 <style>
 #footerbar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
