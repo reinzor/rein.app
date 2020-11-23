@@ -18,6 +18,6 @@ export default {
 
 <style>
 #navbar nav {
-  background-color: rgba(0, 0, 0, 0.138) !important
+  background-color: rgba(0, 0, 0, 0.4) !important
 }
 </style>
