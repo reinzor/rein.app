@@ -51,6 +51,12 @@ export default {
       ],
     };
   },
+  mounted() {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  },
   methods: {
     randomVideo() {
       return this.videos[Math.floor(Math.random() * this.videos.length)];
@@ -73,20 +79,21 @@ html body {
 
 #video-background {
   max-height: 100%;
-  height: 100vh;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .masthead {
   width: 100%;
-  height: auto;
-  min-height: 35rem;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
   padding: 15rem 0;
 }
 
 .masthead h1 {
   font-family: "Varela Round";
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 1.9rem;
+  line-height: 1.9rem;
   letter-spacing: 0.2rem;
   background: linear-gradient(
     rgba(255, 255, 255, 0.8),
@@ -95,11 +102,13 @@ html body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+
+  padding: 0;
 }
 
 .masthead h2 {
   max-width: 20rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .vue-typer .custom.char.typed {
@@ -121,10 +130,6 @@ html body {
 }
 
 @media (min-width: 992px) {
-  .masthead {
-    height: 100vh;
-    padding: 0;
-  }
   .masthead h1 {
     font-size: 6rem;
     line-height: 6rem;
