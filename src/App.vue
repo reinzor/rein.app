@@ -116,8 +116,8 @@ html body {
 }
 
 .vue-typer .caret {
-  background-color: rgba(255, 255, 255, 0.5);
-  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  display: inline-block !important;
   margin-left: 10px;
   width: 10px;
 }
