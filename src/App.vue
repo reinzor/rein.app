@@ -14,10 +14,13 @@
             </h1>
             <h2 class="mx-auto mt-2 mb-5">
               <vue-typer
-                :repeat="0"
+                :repeat="Infinity"
+                :shuffle="false"
                 :type-delay="20"
                 caret-animation="blink"
-                text="Full stack robotics software developer"
+                :pre-erase-delay="4000"
+                erase-style='clear'
+                :text="text"
               ></vue-typer>
             </h2>
           </div>
@@ -49,6 +52,11 @@ export default {
         require("@/assets/video/demo.mp4"),
         require("@/assets/video/demo2.mp4"),
       ],
+      text: [
+        "Full stack robotics developer",
+        "Home automation fanatic",
+        "Open source software enthusiast",
+      ]
     };
   },
   mounted() {
@@ -60,7 +68,7 @@ export default {
   methods: {
     randomVideo() {
       return this.videos[Math.floor(Math.random() * this.videos.length)];
-    },
+    }
   },
 };
 </script>
