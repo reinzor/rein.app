@@ -12,9 +12,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { faHome, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faVolumeUp, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 library.add(faHome)
 library.add(faVolumeUp)
+library.add(faMapMarkerAlt)
 
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 library.add(faLinkedin)

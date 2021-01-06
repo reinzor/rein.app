@@ -15,6 +15,9 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
+            <b-nav-item href="https://chrome.google.com/webstore/detail/timeline-exporter/afalbippddliaaomolohcbfogogbjpkk" title="Timeline exporter">
+              <font-awesome-icon :icon="['fas', 'map-marker-alt']" />
+            </b-nav-item>
             <b-nav-item href="https://home.rein.app" title="Home assistant">
               <font-awesome-icon :icon="['fas', 'home']" />
             </b-nav-item>
