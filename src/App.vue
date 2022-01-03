@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <video-background
-      id="video-background"
-      :src="randomVideo()"
-      overlay="linear-gradient(180deg,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.9))"
-    >
+    <div id="background">
       <navbar />
       <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
@@ -14,25 +10,24 @@
             </h1>
             <h2 class="mx-auto mt-2 mb-5">
               <vue-typer
-                :repeat="Infinity"
-                :shuffle="false"
-                :type-delay="20"
-                caret-animation="blink"
-                :pre-erase-delay="4000"
-                erase-style='clear'
-                :text="text"
+                  :repeat="Infinity"
+                  :shuffle="false"
+                  :type-delay="20"
+                  caret-animation="blink"
+                  :pre-erase-delay="4000"
+                  erase-style='clear'
+                  :text="text"
               ></vue-typer>
             </h2>
           </div>
         </div>
       </header>
       <footerbar />
-    </video-background>
+    </div>
   </div>
 </template>
 
 <script>
-import VideoBackground from "vue-responsive-video-background-player";
 import { VueTyper } from "vue-typer";
 
 import Navbar from "./components/Navbar";
@@ -41,17 +36,12 @@ import Footerbar from "./components/Footerbar";
 export default {
   name: "App",
   components: {
-    VideoBackground,
     Navbar,
     Footerbar,
     VueTyper,
   },
   data() {
     return {
-      videos: [
-        require("@/assets/video/demo.mp4"),
-        require("@/assets/video/demo2.mp4"),
-      ],
       text: [
         "Full stack robotics developer",
         "Home automation fanatic",
@@ -60,15 +50,21 @@ export default {
     };
   },
   mounted() {
-    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-    let vh = window.innerHeight * 0.01;
-    // Then we set the value in the --vh custom property to the root of the document
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  },
-  methods: {
-    randomVideo() {
-      return this.videos[Math.floor(Math.random() * this.videos.length)];
-    }
+    window.VANTA.NET({
+      el: "#background",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0xff3fd1,
+      backgroundColor: 0x0,
+      points: 11.00,
+      maxDistance: 21.00,
+      spacing: 16.00
+    })
   },
 };
 </script>
@@ -85,16 +81,14 @@ html body {
     "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-#video-background {
+#background {
   max-height: 100%;
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
 }
 
 .masthead {
   width: 100%;
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
   padding: 15rem 0;
 }
 
